@@ -1,0 +1,294 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import java.awt.GridLayout;
+import java.awt.TextField;
+
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
+import java.awt.Color;
+import javax.swing.border.LineBorder;
+
+public class HesapMakinesiBuild extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JTextField txtekran;
+	private double sonuc,sayi;
+	int operator;
+	
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					HesapMakinesiBuild frame = new HesapMakinesiBuild();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	public void calculate()
+	{
+		switch (operator)
+		{
+		case 1:
+			sonuc=sayi+Double.parseDouble(txtekran.getText());
+			txtekran.setText(Double.toString(sonuc));
+			break;
+		case 2:
+			sonuc=sayi-Double.parseDouble(txtekran.getText());
+			txtekran.setText(Double.toString(sonuc));
+			break;
+		case 3:
+			sonuc=sayi*Double.parseDouble(txtekran.getText());
+			txtekran.setText(Double.toString(sonuc));
+			break;
+		case 4:
+			sonuc=sayi/Double.parseDouble(txtekran.getText());
+			txtekran.setText(Double.toString(sonuc));
+			break;
+
+	}
+	}
+	
+	public void addInput(String str)
+	{
+		txtekran.setText(txtekran.getText()+str);
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	
+	public HesapMakinesiBuild() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 565, 506);
+		contentPane = new JPanel();
+		contentPane.setBackground(new Color(0, 0, 0));
+		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		txtekran = new JTextField();
+		txtekran.setFont(new Font("Berlin Sans FB", Font.PLAIN, 30));
+		txtekran.setBackground(Color.LIGHT_GRAY);
+		txtekran.setForeground(new Color(0, 0, 0));
+		txtekran.setBounds(10, 45, 257, 39);
+		contentPane.add(txtekran);
+		txtekran.setColumns(10);
+		
+		JLabel lblsonuc = new JLabel("");
+		lblsonuc.setBounds(277, 45, 102, 25);
+		contentPane.add(lblsonuc);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(0, 0, 0));
+		panel.setBounds(10, 128, 531, 331);
+		contentPane.add(panel);
+		panel.setLayout(new GridLayout(4, 4, 10, 10));
+		
+		JButton btn7 = new JButton("7");
+		btn7.setForeground(Color.WHITE);
+		btn7.setBackground(Color.BLACK);
+		btn7.setFont(new Font("Berlin Sans FB", Font.PLAIN, 30));
+		btn7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				addInput(e.getActionCommand());
+			}
+		});
+		panel.add(btn7);
+		
+		JButton btn8 = new JButton("8");
+		btn8.setForeground(Color.WHITE);
+		btn8.setBackground(Color.BLACK);
+		btn8.setFont(new Font("Berlin Sans FB", Font.PLAIN, 30));
+		btn8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				addInput(e.getActionCommand());
+			}
+		});
+		panel.add(btn8);
+		
+		JButton btn9 = new JButton("9");
+		btn9.setForeground(Color.WHITE);
+		btn9.setBackground(Color.BLACK);
+		btn9.setFont(new Font("Berlin Sans FB", Font.PLAIN, 30));
+		btn9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				addInput(e.getActionCommand());
+			}
+		});
+		panel.add(btn9);
+		
+		JButton btntopla = new JButton("+");
+		btntopla.setBackground(Color.LIGHT_GRAY);
+		btntopla.setForeground(Color.WHITE);
+		btntopla.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 30));
+		btntopla.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				sayi=Double.parseDouble(txtekran.getText());
+				operator=1;
+				txtekran.setText("");
+				lblsonuc.setText(sayi+e.getActionCommand());
+			}
+		});
+		panel.add(btntopla);
+		
+		JButton btn4 = new JButton("4");
+		btn4.setForeground(Color.WHITE);
+		btn4.setBackground(Color.BLACK);
+		btn4.setFont(new Font("Berlin Sans FB", Font.PLAIN, 30));
+		btn4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				addInput(e.getActionCommand());
+			}
+		});
+		panel.add(btn4);
+		
+		JButton btn5 = new JButton("5");
+		btn5.setForeground(Color.WHITE);
+		btn5.setBackground(Color.BLACK);
+		btn5.setFont(new Font("Berlin Sans FB", Font.PLAIN, 30));
+		btn5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				addInput(e.getActionCommand());
+			}
+		});
+		panel.add(btn5);
+		
+		JButton btn6 = new JButton("6");
+		btn6.setForeground(Color.WHITE);
+		btn6.setBackground(Color.BLACK);
+		btn6.setFont(new Font("Berlin Sans FB", Font.PLAIN, 30));
+		btn6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				addInput(e.getActionCommand());
+			}
+		});
+		panel.add(btn6);
+		
+		JButton btncıkar = new JButton("-");
+		btncıkar.setBackground(Color.LIGHT_GRAY);
+		btncıkar.setForeground(Color.WHITE);
+		btncıkar.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 30));
+		btncıkar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				sayi=Double.parseDouble(txtekran.getText());
+				operator=2;
+				txtekran.setText("");
+				lblsonuc.setText(sayi+e.getActionCommand());
+			}
+		});
+		panel.add(btncıkar);
+		
+		JButton btn1 = new JButton("1");
+		btn1.setForeground(Color.WHITE);
+		btn1.setBackground(Color.BLACK);
+		btn1.setFont(new Font("Berlin Sans FB", Font.PLAIN, 30));
+		btn1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				addInput(e.getActionCommand());
+				
+			}
+		});
+		panel.add(btn1);
+		
+		JButton btn2 = new JButton("2");
+		btn2.setForeground(Color.WHITE);
+		btn2.setBackground(Color.BLACK);
+		btn2.setFont(new Font("Berlin Sans FB", Font.PLAIN, 30));
+		btn2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				addInput(e.getActionCommand());
+			}
+		});
+		panel.add(btn2);
+		
+		JButton btn3 = new JButton("3");
+		btn3.setForeground(Color.WHITE);
+		btn3.setBackground(Color.BLACK);
+		btn3.setFont(new Font("Berlin Sans FB", Font.PLAIN, 30));
+		btn3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				addInput(e.getActionCommand());
+			}
+		});
+		panel.add(btn3);
+		
+		JButton btnbol = new JButton("/");
+		btnbol.setBackground(Color.LIGHT_GRAY);
+		btnbol.setForeground(Color.WHITE);
+		btnbol.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 30));
+		btnbol.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				sayi=Double.parseDouble(txtekran.getText());
+				operator=4;
+				txtekran.setText("");
+				lblsonuc.setText(sayi+e.getActionCommand());
+			}
+		});
+		panel.add(btnbol);
+		
+		JButton btn0 = new JButton("0");
+		btn0.setForeground(Color.WHITE);
+		btn0.setBackground(Color.BLACK);
+		btn0.setFont(new Font("Berlin Sans FB", Font.PLAIN, 30));
+		btn0.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				addInput(e.getActionCommand());             
+			}
+		});
+		panel.add(btn0);
+		
+		JButton btnC = new JButton("C");
+		btnC.setBackground(Color.RED);
+		btnC.setForeground(Color.WHITE);
+		btnC.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 30));
+		btnC.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtekran.setText(" ");
+			}
+		});
+		panel.add(btnC);
+		
+		JButton btnesittir = new JButton("=");
+		btnesittir.setBackground(new Color(204, 51, 51));
+		btnesittir.setForeground(Color.WHITE);
+		btnesittir.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 30));
+		btnesittir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				calculate();
+				lblsonuc.setText("");
+			}
+		});
+		panel.add(btnesittir);
+		
+		JButton btncarp = new JButton("*");
+		btncarp.setBackground(Color.LIGHT_GRAY);
+		btncarp.setForeground(Color.WHITE);
+		btncarp.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 30));
+		btncarp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				sayi=Double.parseDouble(txtekran.getText());
+				operator=3;
+				txtekran.setText("");
+				lblsonuc.setText(sayi+e.getActionCommand());
+			}
+		});
+		panel.add(btncarp);
+	}
+
+}
